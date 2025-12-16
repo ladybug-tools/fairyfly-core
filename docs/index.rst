@@ -2,7 +2,7 @@
 Welcome to Fairyfly's documentation!
 =========================================
 
-.. image:: https://raw.githubusercontent.com/ladybug-tools/artwork/refs/heads/master/icons_bugs/png/fairyflyborder.png
+.. image:: https://raw.githubusercontent.com/ladybug-tools/artwork/refs/heads/master/icons_bugs/png/fairyfly-small.png
 
 Fairyfly is a collection of Python libraries to create representations of construction details
 following `fairyfly-schema <https://github.com/ladybug-tools/fairyfly-schema/wiki>`_.

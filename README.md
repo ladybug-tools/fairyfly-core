@@ -1,4 +1,4 @@
-![Fairyfly](https://raw.githubusercontent.com/ladybug-tools/artwork/refs/heads/master/icons_bugs/png/fairyflyborder.png)
+![Fairyfly](https://raw.githubusercontent.com/ladybug-tools/artwork/refs/heads/master/icons_bugs/png/fairyfly-small.png)
 
 [![Build Status](https://github.com/ladybug-tools/fairyfly-core/actions/workflows/ci.yaml/badge.svg)](https://github.com/ladybug-tools/fairyfly-core/actions)
 

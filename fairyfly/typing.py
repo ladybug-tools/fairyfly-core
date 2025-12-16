@@ -15,7 +15,7 @@ def valid_uuid(value, input_name=''):
     """Check that a string is a UUID in the format xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx.
 
     Note that this is slightly different than the UUIDs used in THERM, which
-    have 4 values in the middle removed for a 8-4-4-12 structure instead of a 8-4-4-4-12
+    have 4 fewer values for a 8-4-4-12 structure instead of a 8-4-4-4-12
     structure. The therm_id_from_uuid method can be used to convert an input here
     into a format acceptable for THERM.
     """
