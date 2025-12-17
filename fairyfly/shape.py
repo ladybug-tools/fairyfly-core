@@ -4,8 +4,7 @@ from __future__ import division
 import math
 import re
 
-from ladybug_geometry.geometry3d.pointvector import Point3D
-from ladybug_geometry.geometry3d.face import Face3D
+from ladybug_geometry.geometry3d import Point3D, Face3D
 
 from ._base import _Base
 from .search import get_attr_nested
@@ -25,6 +24,8 @@ class Shape(_Base):
     Properties:
         * identifier
         * display_name
+        * therm_uuid
+        * full_id
         * parent
         * has_parent
         * geometry
@@ -344,20 +345,6 @@ class Shape(_Base):
             return full_msg
         return [] if detailed else ''
 
-    @property
-    def to(self):
-        """Shape writer object.
-
-        Use this method to access Writer class to write the shape in different formats.
-
-        Usage:
-
-        .. code-block:: python
-
-            shape.to.therm(shape) -> therm XML element
-        """
-        return writer
-
     def to_dict(self, abridged=False, included_prop=None, include_plane=True):
         """Return Shape as a dictionary.
 
@@ -383,6 +370,20 @@ class Shape(_Base):
         if self.user_data is not None:
             base['user_data'] = self.user_data
         return base
+
+    @property
+    def to(self):
+        """Shape writer object.
+
+        Use this method to access Writer class to write the shape in different formats.
+
+        Usage:
+
+        .. code-block:: python
+
+            shape.to.therm(shape) -> therm XML element
+        """
+        return writer
 
     def __copy__(self):
         new_shape = Shape(self.geometry, self.identifier)
