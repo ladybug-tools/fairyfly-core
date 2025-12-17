@@ -1,6 +1,8 @@
 """Collection of methods for type input checking."""
-import uuid
 import math
+import re
+import uuid
+import hashlib
 
 try:
     INFPOS = math.inf
@@ -37,6 +39,28 @@ def therm_id_from_uuid(value):
     """Convert a valid_uuid into a format that THERM will accept."""
     hex_id = value.replace('-', '')
     return '{}-{}-{}-{}'.format(hex_id[:8], hex_id[8:12], hex_id[12:16], hex_id[16:28])
+
+
+def clean_string(value, input_name=''):
+    """Clean a string so that it is valid as a filepath.
+
+    This will strip out spaces and special characters and raise an error if the
+    string is has more than 100 characters. If the input has no valid characters
+    after stripping out illegal ones, a randomly-generated UUID will be returned.
+    """
+    try:
+        value = value.replace(' ', '_')  # spaces > underscores for readability
+        val = re.sub(r'[^.A-Za-z0-9_-]', '', value)
+    except TypeError:
+        raise TypeError('Input {} must be a text string. Got {}: {}.'.format(
+            input_name, type(value), value))
+    if len(val) == 0:  # generate a unique but consistent ID from the input
+        sha256_hash = hashlib.sha256(value.encode('utf-8'))
+        hash_str = str(sha256_hash.hexdigest())
+        return hash_str[:8] if len(hash_str) > 8 else hash_str
+    assert len(val) <= 100, 'Input {} "{}" must be less than 100 characters.'.format(
+        input_name, value)
+    return val
 
 
 def _number_check(value, input_name):

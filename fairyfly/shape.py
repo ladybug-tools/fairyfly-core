@@ -31,11 +31,11 @@ class Shape(_Base):
         * geometry
         * vertices
         * normal
-        * center
         * area
         * perimeter
         * min
         * max
+        * center
         * tilt
         * altitude
         * azimuth

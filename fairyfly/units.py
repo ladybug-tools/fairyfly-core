@@ -4,11 +4,11 @@
 UNITS = ('Meters', 'Millimeters', 'Feet', 'Inches', 'Centimeters')
 UNITS_ABBREVIATIONS = ('m', 'mm', 'ft', 'in', 'cm')
 UNITS_TOLERANCES = {
-    'Meters': 0.01,
-    'Millimeters': 1.0,
-    'Feet': 0.01,
-    'Inches': 0.1,
-    'Centimeters': 1.0
+    'Meters': 0.00001,
+    'Millimeters': 0.01,
+    'Feet': 0.00001,
+    'Inches': 0.0001,
+    'Centimeters': 0.001
 }
 
 

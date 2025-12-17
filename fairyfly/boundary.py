@@ -31,9 +31,9 @@ class Boundary(_Base):
         * has_parent
         * geometry
         * length
-        * center
         * min
         * max
+        * center
         * user_data
     """
     __slots__ = ('_geometry', '_is_detached')
