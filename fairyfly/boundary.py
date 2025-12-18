@@ -30,13 +30,14 @@ class Boundary(_Base):
         * parent
         * has_parent
         * geometry
+        * vertices
         * length
         * min
         * max
         * center
         * user_data
     """
-    __slots__ = ('_geometry', '_is_detached')
+    __slots__ = ('_geometry', '_parent')
 
     def __init__(self, geometry, identifier=None):
         """Initialize Boundary."""
@@ -101,7 +102,7 @@ class Boundary(_Base):
         for l_geo in vertices:
             verts = tuple(Point3D.from_array(pt) for pt in l_geo)
             if len(verts) == 2:
-                geometry.append(LineSegment3D.from_end_points(*l_geo))
+                geometry.append(LineSegment3D.from_end_points(*verts))
             else:
                 poly_geo = Polyline3D(verts)
                 geometry.extend(poly_geo.segments)
@@ -124,6 +125,11 @@ class Boundary(_Base):
     def geometry(self):
         """Get a tuple of LineSegment3D objects that represent the boundary."""
         return self._geometry
+
+    @property
+    def vertices(self):
+        """Get a list of vertices for the boundary."""
+        return tuple(pt for geo in self._geometry for pt in geo.vertices)
 
     @property
     def length(self):
@@ -174,6 +180,19 @@ class Boundary(_Base):
         """
         self._geometry = tuple(l_geo.move(moving_vec) for l_geo in self._geometry)
         self.properties.move(moving_vec)
+
+    def rotate(self, axis, angle, origin):
+        """Rotate this Shape by a certain angle around an axis and origin.
+
+        Args:
+            axis: A ladybug_geometry Vector3D axis representing the axis of rotation.
+            angle: An angle for rotation in degrees.
+            origin: A ladybug_geometry Point3D for the origin around which the
+                object will be rotated.
+        """
+        self._geometry = tuple(l_geo.rotate(axis, math.radians(angle), origin)
+                               for l_geo in self._geometry)
+        self.properties.rotate(axis, angle, origin)
 
     def rotate_xy(self, angle, origin):
         """Rotate this Boundary counterclockwise in the XY plane by a certain angle.
@@ -229,8 +248,10 @@ class Boundary(_Base):
         for seg in self.geometry:
             for pt in seg.vertices:
                 for o_pt in pts:
-                    if not pt.is_equivalent(o_pt, tolerance):
-                        pts.append(pt)
+                    if pt.is_equivalent(o_pt, tolerance):
+                        break
+                else:  # the point is unique
+                    pts.append(pt)
         # evaluate the points in relation to their plane
         if len(pts) > 3:
             plane = Plane.from_three_points(*pts[:3])
