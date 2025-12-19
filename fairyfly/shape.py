@@ -1,5 +1,5 @@
 # coding: utf-8
-"""Honeybee Shape."""
+"""Fairyfly Shape."""
 from __future__ import division
 import math
 import re

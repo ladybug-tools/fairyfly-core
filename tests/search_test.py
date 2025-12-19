@@ -1,5 +1,5 @@
 """Test the search functions."""
-from honeybee.search import filter_array_by_keywords, any_keywords_in_string, \
+from fairyfly.search import filter_array_by_keywords, any_keywords_in_string, \
     get_attr_nested
 
 from collections import namedtuple

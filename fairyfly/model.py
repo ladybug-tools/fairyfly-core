@@ -262,7 +262,7 @@ class Model(_Base):
         else:
             base_plane = Plane(Vector3D(0, 0, 1), Point3D(0, 0, 0))
         # create the shape and boundary objects
-        outside = LineSegment3D(base_plane.o, base_plane.y * height)
+        outside = Boundary((LineSegment3D(base_plane.o, base_plane.y * height),))
         outside.display_name = 'Outdoors'
         shapes, boundaries = [], [outside]
         for i, base in enumerate(thicknesses):
@@ -270,8 +270,10 @@ class Model(_Base):
             base_plane = base_plane.move(base_plane.x * base)
             shape = Shape(shp_geo)
             shape.display_name = 'Layer {}'.format(i + 1)
-        inside = LineSegment3D(base_plane.o, base_plane.y * height)
+            shapes.append(shape)
+        inside = Boundary((LineSegment3D(base_plane.o, base_plane.y * height),))
         inside.display_name = 'Indoors'
+        boundaries.append(inside)
         # create the model object
         model = cls(shapes, boundaries, units=units, tolerance=tolerance,
                     angle_tolerance=angle_tolerance)
@@ -334,7 +336,7 @@ class Model(_Base):
     @property
     def boundaries(self):
         """Get a tuple of all Boundary objects in the model."""
-        return tuple(self._shapes)
+        return tuple(self._boundaries)
 
     @boundaries.setter
     def boundaries(self, value):
@@ -342,6 +344,16 @@ class Model(_Base):
         if value is not None:
             for bound in value:
                 self.add_boundary(bound)
+
+    @property
+    def shape_area(self):
+        """Get the combined area of all shapes in the Model."""
+        return sum(shape.area for shape in self._shapes)
+
+    @property
+    def boundary_length(self):
+        """Get the combined length of all boundaries in the Model."""
+        return sum(bound.length for bound in self._boundaries)
 
     @property
     def min(self):
@@ -352,6 +364,12 @@ class Model(_Base):
     def max(self):
         """Get a Point3D for the max bounding box vertex in the world XY plane."""
         return self._calculate_max(self._all_objects())
+
+    @property
+    def center(self):
+        """A Point3D for the center of the bounding box around the object."""
+        mn, mx = self.min, self.max
+        return Point3D((mn.x + mx.x) / 2, (mn.y + mx.y) / 2, (mn.z + mx.z) / 2)
 
     def add_model(self, other_model):
         """Add another Model object to this model."""
@@ -413,6 +431,7 @@ class Model(_Base):
         shapes, missing_ids = [], []
         model_shapes = self._shapes
         for obj_id in identifiers:
+            obj_id = str(obj_id)  # in case UUID objects were used instead of str
             for shape in model_shapes:
                 if shape.identifier == obj_id:
                     shapes.append(shape)
@@ -431,9 +450,10 @@ class Model(_Base):
         boundaries, missing_ids = [], []
         model_boundaries = self.boundaries
         for obj_id in identifiers:
-            for face in model_boundaries:
-                if face.identifier == obj_id:
-                    boundaries.append(face)
+            obj_id = str(obj_id)  # in case UUID objects were used instead of str
+            for bnd in model_boundaries:
+                if bnd.identifier == obj_id:
+                    boundaries.append(bnd)
                     break
             else:
                 missing_ids.append(obj_id)
@@ -756,8 +776,8 @@ class Model(_Base):
         tolerance = self.tolerance if tolerance is None else tolerance
         detailed = False if raise_exception else detailed
         msgs = []
-        for bound in self.boundaries:
-            msgs.append(bound.check_self_intersecting(tolerance, False, detailed))
+        for shape in self.shapes:
+            msgs.append(shape.check_self_intersecting(tolerance, False, detailed))
         full_msgs = [msg for msg in msgs if msg]
         if detailed:
             return [m for msg in full_msgs for m in msg]
@@ -840,6 +860,8 @@ class Model(_Base):
         file_name = name if name.lower().endswith('.ffjson') or \
             name.lower().endswith('.json') else '{}.ffjson'.format(name)
         folder = folder if folder is not None else folders.default_simulation_folder
+        if not os.path.isdir(folder):
+            os.makedirs(folder)
         hb_file = os.path.join(folder, file_name)
         # write FFJSON
         with open(hb_file, 'w') as fp:
@@ -869,6 +891,8 @@ class Model(_Base):
         file_name = name if name.lower().endswith('.ffpkl') or \
             name.lower().endswith('.pkl') else '{}.ffpkl'.format(name)
         folder = folder if folder is not None else folders.default_simulation_folder
+        if not os.path.isdir(folder):
+            os.makedirs(folder)
         hb_file = os.path.join(folder, file_name)
         # write the Model dictionary into a file
         with open(hb_file, 'wb') as fp:
@@ -960,6 +984,10 @@ class Model(_Base):
                 out_dict['errors'] = []
                 out_dict['valid'] = False
             return json.dumps(out_dict, indent=4)
+
+    def _all_objects(self):
+        """Get a single list of all the objects in a Model."""
+        return self._shapes + self._boundaries
 
     @staticmethod
     def _remove_by_ids(objs, obj_ids):

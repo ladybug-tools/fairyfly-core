@@ -166,12 +166,12 @@ def invalid_dict_error(invalid_dict, error):
     invalid object within large objects like Models.
 
     Args:
-        invalid_dict: A dictionary of an invalid honeybee object that failed
+        invalid_dict: A dictionary of an invalid fairyfly object that failed
             to serialize.
         error:
     """
     obj_type = invalid_dict['type'].replace('Abridged', '') \
-        if 'type' in invalid_dict else 'Honeybee Object'
+        if 'type' in invalid_dict else 'Fairyfly Object'
     obj_id = invalid_dict['identifier'] if 'identifier' in invalid_dict else ''
     full_id = '{}[{}]'.format(invalid_dict['display_name'], obj_id) \
         if 'display_name' in invalid_dict else obj_id

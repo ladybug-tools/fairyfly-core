@@ -10,7 +10,7 @@ Note:
     line interface. For running the commands execute them from the command line or as a
     subprocess (e.g. ``subprocess.call(['fairyfly', 'viz'])``)
 
-Honeybee is using click (https://click.palletsprojects.com/en/7.x/) for creating the CLI.
+Fairyfly is using click (https://click.palletsprojects.com/en/7.x/) for creating the CLI.
 You can extend the command line interface from inside each extension by following these
 steps:
 
