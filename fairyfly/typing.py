@@ -41,6 +41,14 @@ def therm_id_from_uuid(value):
     return '{}-{}-{}-{}'.format(hex_id[:8], hex_id[8:12], hex_id[12:16], hex_id[16:28])
 
 
+def uuid_from_therm_id(value):
+    """Convert a UUID from THERM into a valid_uuid format with 32 characters."""
+    hex_id = value.replace('-', '')
+    hex_id = hex_id + str(uuid.uuid4())[:4]
+    return '{}-{}-{}-{}-{}'.format(hex_id[:8], hex_id[8:12], hex_id[12:16],
+                                   hex_id[16:20], hex_id[20:32])
+
+
 def clean_string(value, input_name=''):
     """Clean a string so that it is valid as a filepath.
 

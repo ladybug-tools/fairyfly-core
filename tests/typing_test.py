@@ -1,7 +1,7 @@
 """Test the typing functions."""
 import uuid
 
-from fairyfly.typing import valid_uuid, therm_id_from_uuid, \
+from fairyfly.typing import valid_uuid, therm_id_from_uuid, uuid_from_therm_id, \
     float_in_range, int_in_range, float_positive, int_positive, \
     tuple_with_length, list_with_length, \
     float_in_range_excl, float_in_range_excl_incl, float_in_range_incl_excl, \
@@ -23,6 +23,15 @@ def test_valid_uuid():
 
     correct_uuid = str(uuid.uuid4())
     assert valid_uuid(correct_uuid) == correct_uuid
+
+
+def test_therm_id():
+    """Test the functions that convert back and forth between THERM and UUID."""
+    test_therm_id = 'bfcd01b9-194e-84cf-27a720ae86d4'
+    new_uuid = uuid_from_therm_id(test_therm_id)
+
+    assert uuid.UUID(new_uuid)
+    assert therm_id_from_uuid(new_uuid) == test_therm_id
 
 
 def test_float_in_range():
