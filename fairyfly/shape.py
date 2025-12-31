@@ -253,7 +253,7 @@ class Shape(_Base):
         Args:
             tolerance: The minimum distance between a vertex and the boundary segments
                 at which point the vertex is considered colinear. Default: 0.01,
-                suitable for objects in meters.
+                suitable for objects in millimeters.
         """
         try:
             self._geometry = self.geometry.remove_colinear_vertices(tolerance)
@@ -261,6 +261,41 @@ class Shape(_Base):
             raise ValueError(
                 'Shape "{}" is invalid with dimensions less than the '
                 'tolerance.\n{}'.format(self.full_id, e))
+
+    def insert_vertex(self, point, tolerance=0.01):
+        """Insert a Point3D into this Shape's geometry if it lies within the tolerance.
+
+        Args:
+            point: A Point3D to be inserted into this Shape geometry if it lies
+                within the tolerance of the Shape's existing segments.
+            tolerance: The minimum distance between a vertex and the boundary segments
+                at which point the vertex is considered colinear. Default: 0.01,
+                suitable for objects in millimeters.
+        """
+        # first perform a bounding box check between the point and face
+        if not self._point_overlaps_bound(point, tolerance):
+            return None
+        # evaluate each boundary segment for whether it can be inserted
+        insert_i = None
+        for i, seg in enumerate(self.geometry.boundary_segments):
+            if seg.distance_to_point(point) <= tolerance:
+                insert_i = i
+                break
+        if insert_i is not None:
+            new_bound = list(self.geometry.boundary)
+            new_bound.insert(insert_i, point)
+            self._geometry = Face3D(new_bound, self._geometry.plane, self._geometry.holes)
+            return None
+        # evaluate the holes if they exist
+        if self._geometry.has_holes:
+            for hi, h_segs in enumerate(self._geometry.hole_segments):
+                for i, seg in enumerate(h_segs):
+                    if seg.distance_to_point(point) <= tolerance:
+                        new_holes = list(self.geometry.holes)
+                        new_holes[hi].insert(i, point)
+                        self._geometry = Face3D(self._geometry.boundary,
+                                                self._geometry.plane, new_holes)
+                        return None
 
     def is_geo_equivalent(self, shape, tolerance=0.01):
         """Get a boolean for whether this object is geometrically equivalent to another.
@@ -289,7 +324,7 @@ class Shape(_Base):
         Args:
             tolerance: The minimum distance between a given vertex and a the
                 object's plane at which the vertex is said to lie in the plane.
-                Default: 0.01, suitable for objects in meters.
+                Default: 0.01, suitable for objects in millimeters.
             raise_exception: Boolean to note whether an ValueError should be
                 raised if a vertex does not lie within the object's plane.
             detailed: Boolean for whether the returned object is a detailed list of
@@ -320,7 +355,7 @@ class Shape(_Base):
         Args:
             tolerance: The minimum difference between the coordinate values of two
                 vertices at which they can be considered equivalent. Default: 0.01,
-                suitable for objects in meters.
+                suitable for objects in millimeters.
             raise_exception: If True, a ValueError will be raised if the object
                 intersects with itself. Default: True.
             detailed: Boolean for whether the returned object is a detailed list of
@@ -454,6 +489,29 @@ class Shape(_Base):
                 new_geo = Face3D(face_loops[0], shapes[i].geometry.plane, face_loops[1])
             shapes[i]._geometry = new_geo
         return shapes
+
+    def _point_overlaps_bound(self, point, distance):
+        """Check if a point lies within the bounding box around this shape."""
+        # Bounding box check using the Separating Axis Theorem
+        geo1_width = self.max.x - self.min.x
+        dist_btwn_x = abs(self.center.x - point.x)
+        x_gap_btwn_box = dist_btwn_x - (0.5 * geo1_width)
+        if x_gap_btwn_box > distance:
+            return False   # overlap impossible
+
+        geo1_depth = self.max.y - self.min.y
+        dist_btwn_y = abs(self.center.y - point.y)
+        y_gap_btwn_box = dist_btwn_y - (0.5 * geo1_depth)
+        if y_gap_btwn_box > distance:
+            return False   # overlap impossible
+
+        geo1_height = self.max.z - self.min.z
+        dist_btwn_z = abs(self.center.z - point.z)
+        z_gap_btwn_box = dist_btwn_z - (0.5 * geo1_height)
+        if z_gap_btwn_box > distance:
+            return False   # overlap impossible
+
+        return True  # overlap exists
 
     def __copy__(self):
         new_shape = Shape(self.geometry, self.identifier)

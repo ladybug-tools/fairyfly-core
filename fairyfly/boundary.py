@@ -234,7 +234,7 @@ class Boundary(_Base):
         Args:
             tolerance: The minimum distance between a given vertex and a the
                 object's plane at which the vertex is said to lie in the plane.
-                Default: 0.01, suitable for objects in meters.
+                Default: 0.01, suitable for objects in millimeters.
             raise_exception: Boolean to note whether an ValueError should be
                 raised if a vertex does not lie within the object's plane.
             detailed: Boolean for whether the returned object is a detailed list of
