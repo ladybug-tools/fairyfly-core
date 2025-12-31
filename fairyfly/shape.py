@@ -4,7 +4,8 @@ from __future__ import division
 import math
 import re
 
-from ladybug_geometry.geometry3d import Point3D, Face3D
+from ladybug_geometry.geometry2d import Polygon2D
+from ladybug_geometry.geometry3d import Point3D, Plane, Face3D
 
 from ._base import _Base
 from .search import get_attr_nested
@@ -385,12 +386,84 @@ class Shape(_Base):
         """
         return writer
 
+    @staticmethod
+    def intersect_adjacency(shapes, tolerance=0.01, plane=None):
+        """Intersect the line segments of Shapes to ensure matching adjacencies.
+
+        Args:
+            shapes: A list of Shapes for which adjacent segments will be intersected.
+            tolerance: The minimum difference between the coordinate values of two
+                faces at which they can be considered adjacent. (Default: 0.01,
+                suitable for objects in millimeters).
+            plane: An optional ladybug-geometry Plane object to set the plane
+                in which all Shape intersection will be evaluated. If None, the
+                plane will automatically be senses from the input geometries and
+                a ValueError will be raised if not all of the input Shapes lie
+                within the same plane given the input tolerance. (Default: None).
+
+        Returns:
+            An array of Shapes that have been intersected with one another.
+        """
+        # keep track of all data needed to map between 2D and 3D space
+        if plane is None:
+            master_plane = shapes[0].geometry.plane
+            for shape in shapes:
+                for pt in shape.vertices:
+                    if master_plane.distance_to_point(pt) > tolerance:
+                        msg = 'Not all of the model shapes lie in the same plane as ' \
+                            'each other. Shape "{}" is out of plane by {} units.'.format(
+                                shape.full_id, master_plane.distance_to_point(pt))
+                        raise ValueError(msg)
+        else:
+            assert isinstance(plane, Plane), 'Expected Plane for intersect_adjacency. ' \
+                'Got {}.'.format(type(plane))
+            master_plane = plane
+        is_holes = []
+        polygon_2ds = []
+        tol = tolerance
+
+        # map all Room geometry into the same 2D space
+        for shape in shapes:
+            is_holes.append(False)  # record that first Polygon doesn't have holes
+            pts_2d = tuple(master_plane.xyz_to_xy(pt) for pt in shape.geometry.boundary)
+            polygon_2ds.append(Polygon2D(pts_2d))
+            # of there are holes in the face, add them as their own polygons
+            if shape.geometry.has_holes:
+                for hole in shape.geometry.holes:
+                    is_holes.append(True)
+                    pts_2d = tuple(master_plane.xyz_to_xy(pt) for pt in hole)
+                    polygon_2ds.append(Polygon2D(pts_2d))
+
+        # intersect the Room2D polygons within the 2D space
+        int_poly = Polygon2D.intersect_polygon_segments(polygon_2ds, tol)
+
+        # convert the resulting coordinates back to 3D space
+        face_pts = []
+        for poly, is_hole in zip(int_poly, is_holes):
+            pt_3d = [master_plane.xy_to_xyz(pt) for pt in poly]
+            if not is_hole:
+                face_pts.append((pt_3d, []))
+            else:
+                face_pts[-1][1].append(pt_3d)
+
+        # rebuild all of the geometries to the input Shapes
+        for i, face_loops in enumerate(face_pts):
+            if len(face_loops[1]) == 0:  # no holes
+                new_geo = Face3D(face_loops[0], shapes[i].geometry.plane)
+            else:  # ensure holes are included
+                new_geo = Face3D(face_loops[0], shapes[i].geometry.plane, face_loops[1])
+            shapes[i]._geometry = new_geo
+        return shapes
+
     def __copy__(self):
         new_shape = Shape(self.geometry, self.identifier)
         new_shape._display_name = self._display_name
         new_shape._user_data = None if self.user_data is None else self.user_data.copy()
         new_shape._properties._duplicate_extension_attr(self._properties)
         return new_shape
+
+    def __len__(self):
+        return len(self._geometry)
 
     def __repr__(self):
         return 'Shape: %s' % self.display_name

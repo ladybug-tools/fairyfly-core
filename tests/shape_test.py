@@ -288,3 +288,20 @@ def test_writer():
     writers = [mod for mod in dir(shp.to) if not mod.startswith('_')]
     for writer in writers:
         assert callable(getattr(shp.to, writer))
+
+
+def test_shape_intersect_adjacency():
+    """Test the Room2D intersect_adjacency method."""
+    pts_1 = (Point3D(0, 0, 3), Point3D(10, 0, 3), Point3D(10, 10, 3), Point3D(0, 10, 3))
+    pts_2 = (Point3D(10, 5, 3), Point3D(20, 5, 3), Point3D(20, 15, 3), Point3D(10, 15, 3))
+    pts_3 = (Point3D(10, 5, 2), Point3D(20, 5, 2), Point3D(20, 15, 2), Point3D(10, 15, 2))
+    shape_1 = Shape(Face3D(pts_1))
+    shape_2 = Shape(Face3D(pts_2))
+    shape_1, shape_2 = Shape.intersect_adjacency([shape_1, shape_2], 0.01)
+
+    assert len(shape_1) == 5
+    assert len(shape_2) == 5
+
+    shape_3 = Shape(Face3D(pts_3))
+    with pytest.raises(ValueError):
+        Shape.intersect_adjacency([shape_1, shape_3], 0.01)
