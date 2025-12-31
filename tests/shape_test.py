@@ -211,6 +211,23 @@ def test_remove_colinear_vertices():
     assert len(shape_2.geometry.vertices) == 4
 
 
+def test_insert_vertex():
+    """Test the insert_vertex method."""
+    pts = (Point3D(0, 0), Point3D(2, 0), Point3D(2, 2), Point3D(0, 2))
+    shape = Shape(Face3D(pts))
+    ins_pt_1 = Point3D(1, 1)
+    ins_pt_2 = Point3D(3, 0)
+    ins_pt_3 = Point3D(1, 0)
+
+    assert len(shape.geometry.vertices) == 4
+    shape.insert_vertex(ins_pt_1)
+    assert len(shape.geometry.vertices) == 4
+    shape.insert_vertex(ins_pt_2)
+    assert len(shape.geometry.vertices) == 4
+    shape.insert_vertex(ins_pt_3)
+    assert len(shape.geometry.vertices) == 5
+
+
 def test_check_planar():
     """Test the check_planar method."""
     pts_1 = (Point3D(0, 0, 2), Point3D(2, 0, 2), Point3D(2, 2, 2), Point3D(0, 2, 2))
@@ -291,7 +308,7 @@ def test_writer():
 
 
 def test_shape_intersect_adjacency():
-    """Test the Room2D intersect_adjacency method."""
+    """Test the Shape intersect_adjacency method."""
     pts_1 = (Point3D(0, 0, 3), Point3D(10, 0, 3), Point3D(10, 10, 3), Point3D(0, 10, 3))
     pts_2 = (Point3D(10, 5, 3), Point3D(20, 5, 3), Point3D(20, 15, 3), Point3D(10, 15, 3))
     pts_3 = (Point3D(10, 5, 2), Point3D(20, 5, 2), Point3D(20, 15, 2), Point3D(10, 15, 2))
