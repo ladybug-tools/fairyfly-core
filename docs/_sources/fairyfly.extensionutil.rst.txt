@@ -1,0 +1,7 @@
+fairyfly.extensionutil module
+=============================
+
+.. automodule:: fairyfly.extensionutil
+   :members:
+   :undoc-members:
+   :show-inheritance:
