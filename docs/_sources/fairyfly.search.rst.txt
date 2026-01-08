@@ -1,0 +1,7 @@
+fairyfly.search module
+======================
+
+.. automodule:: fairyfly.search
+   :members:
+   :undoc-members:
+   :show-inheritance:
