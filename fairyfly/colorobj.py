@@ -147,29 +147,30 @@ class _ColorObject(object):
         else:
             self._attr_name_end = at_split[-1]
 
-    def _process_attributes(self, hb_objs):
+    def _process_attributes(self, ff_objs):
         """Process the attributes of fairyfly objects."""
         nd = self.legend_parameters.decimal_count
-        attributes = [get_attr_nested(obj, self._attr_name, nd) for obj in hb_objs]
+        attributes = [get_attr_nested(obj, self._attr_name, nd, False)
+                      for obj in ff_objs]
         attributes_unique = set(attributes)
         float_attr = [atr for atr in attributes_unique if isinstance(atr, float)]
-        str_attr = [atr for atr in attributes_unique if isinstance(atr, str)]
+        str_attr = [str(atr) for atr in attributes_unique if not isinstance(atr, float)]
         float_attr.sort()
         str_attr.sort()
         self._attributes = tuple(str(val) for val in attributes)
         self._attributes_unique = tuple(str_attr) + tuple(str(val) for val in float_attr)
         self._attributes_original = \
             tuple(get_attr_nested(obj, self._attr_name, cast_to_str=False)
-                  for obj in hb_objs)
+                  for obj in ff_objs)
 
-    def _calculate_min_max(self, hb_objs):
+    def _calculate_min_max(self, ff_objs):
         """Calculate maximum and minimum Point3D for a set of shapes."""
-        st_rm_min, st_rm_max = hb_objs[0].geometry.min, hb_objs[0].geometry.max
+        st_rm_min, st_rm_max = ff_objs[0].min, ff_objs[0].max
         min_pt = [st_rm_min.x, st_rm_min.y, st_rm_min.z]
         max_pt = [st_rm_max.x, st_rm_max.y, st_rm_max.z]
 
-        for shape in hb_objs[1:]:
-            rm_min, rm_max = shape.geometry.min, shape.geometry.max
+        for shape in ff_objs[1:]:
+            rm_min, rm_max = shape.min, shape.max
             if rm_min.x < min_pt[0]:
                 min_pt[0] = rm_min.x
             if rm_min.y < min_pt[1]:
