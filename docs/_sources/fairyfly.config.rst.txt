@@ -1,0 +1,7 @@
+fairyfly.config module
+======================
+
+.. automodule:: fairyfly.config
+   :members:
+   :undoc-members:
+   :show-inheritance:
