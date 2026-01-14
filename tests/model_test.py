@@ -299,6 +299,16 @@ def test_check_self_intersecting():
         model_2.check_self_intersecting(0.01, True)
 
 
+def test_check_reasonable_tolerance():
+    """Check the check_reasonable_tolerance method."""
+    assert isinstance(Model.check_reasonable_tolerance('Millimeters', 10), str)
+    assert Model.check_reasonable_tolerance('Millimeters', 1) is None
+    assert Model.check_reasonable_tolerance('Millimeters', 0.1) is None
+
+    assert isinstance(Model.check_reasonable_tolerance('Feet', 0.03), str)
+    assert Model.check_reasonable_tolerance('Feet', 0.003) is None
+
+
 def test_to_dict():
     """Test the Model to_dict method."""
     pts = (Point3D(0, 0, 0), Point3D(0, 0, 3), Point3D(1, 0, 3), Point3D(1, 0, 0))

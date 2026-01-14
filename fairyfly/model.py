@@ -4,6 +4,7 @@ from __future__ import division
 import os
 import io
 import json
+import math
 try:  # check if we are in IronPython
     import cPickle as pickle
 except ImportError:  # wea are in cPython
@@ -12,7 +13,8 @@ except ImportError:  # wea are in cPython
 from ladybug_geometry.geometry3d import Vector3D, Point3D, LineSegment3D, Plane, Face3D
 
 from ._base import _Base
-from .units import conversion_factor_to_meters, UNITS, UNITS_TOLERANCES
+from .units import conversion_factor_to_meters, parse_distance_string, \
+    UNITS, UNITS_TOLERANCES
 from .checkdup import check_duplicate_identifiers, check_duplicate_identifiers_parent
 from .properties import ModelProperties
 from .shape import Shape
@@ -898,6 +900,52 @@ class Model(_Base):
         with open(hb_file, 'wb') as fp:
             pickle.dump(hb_dict, fp)
         return hb_file
+
+    @staticmethod
+    def check_reasonable_tolerance(units, tolerance):
+        """Get a message with a recommended tolerance if it is not reasonable.
+
+        This method is particularly useful to ensure that users have set a
+        tolerance that works for representing construction details and it is
+        not only for full-building simulation.
+
+        When the input tolerance and units are reasonable, the output of this
+        method will simply be None:
+
+        Args:
+            units: Text for the units system in which the model geometry
+                exists. Choose from the following:
+
+                * Millimeters
+                * Inches
+                * Centimeters
+                * Meters
+                * Feet
+
+            tolerance: The maximum difference between x, y, and z values at which
+                vertices are considered equivalent.
+        """
+        max_tol = parse_distance_string('1mm', units)
+        if tolerance > max_tol:
+            return 'The model tolerance is currently set to {} {}.\n' \
+                'This is too coarse to correctly represent construction details.\n' \
+                'It is recommended that the tolerance be dropped to below {} {}\n' \
+                'for an accurate representation of the geometry.'.format(
+                    tolerance, units, Model._round_to_sig_figs(max_tol, 1), units
+                )
+
+    @staticmethod
+    def _round_to_sig_figs(x, sigfigs):
+        """Round a number to a specified number of significant figures."""
+        if x == 0:
+            return 0.0  # Handle zero as a special case
+        # calculate the number of decimal places needed
+        # by finding the magnitude and adjusting for the desired significant figures
+        digits = sigfigs - int(math.floor(math.log10(abs(x)))) - 1
+        if digits == 0:
+            return math.floor(x)
+        multiplier = 10**digits
+        return math.floor(x * multiplier) / multiplier
 
     @staticmethod
     def validate(model, check_function='check_all', check_args=None, json_output=False):
