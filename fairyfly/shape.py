@@ -469,6 +469,9 @@ class Shape(_Base):
                     pts_2d = tuple(master_plane.xyz_to_xy(pt) for pt in hole)
                     polygon_2ds.append(Polygon2D(pts_2d))
 
+        # snap all polygons together
+        polygon_2ds = Polygon2D.snap_polygons(polygon_2ds, tol)
+
         # intersect the Room2D polygons within the 2D space
         int_poly = Polygon2D.intersect_polygon_segments(polygon_2ds, tol)
 
