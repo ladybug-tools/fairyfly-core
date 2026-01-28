@@ -283,7 +283,7 @@ class Shape(_Base):
                 break
         if insert_i is not None:
             new_bound = list(self.geometry.boundary)
-            new_bound.insert(insert_i, point)
+            new_bound.insert(insert_i + 1, point)
             self._geometry = Face3D(new_bound, self._geometry.plane, self._geometry.holes)
             return None
         # evaluate the holes if they exist
@@ -292,7 +292,7 @@ class Shape(_Base):
                 for i, seg in enumerate(h_segs):
                     if seg.distance_to_point(point) <= tolerance:
                         new_holes = list(self.geometry.holes)
-                        new_holes[hi].insert(i, point)
+                        new_holes[hi].insert(i + 1, point)
                         self._geometry = Face3D(self._geometry.boundary,
                                                 self._geometry.plane, new_holes)
                         return None
