@@ -247,6 +247,21 @@ class Shape(_Base):
         self._geometry = self.geometry.scale(factor, origin)
         self.properties.scale(factor, origin)
 
+    def remove_duplicate_vertices(self, tolerance=0.01):
+        """Remove all duplicate vertices from this object's geometry.
+
+        Args:
+            tolerance: The minimum distance between a vertex and the boundary segments
+                at which point the vertex is considered duplicate. Default: 0.01,
+                suitable for objects in millimeters.
+        """
+        try:
+            self._geometry = self.geometry.remove_duplicate_vertices(tolerance)
+        except AssertionError as e:  # usually a sliver face of some kind
+            raise ValueError(
+                'Shape "{}" is invalid with dimensions less than the '
+                'tolerance.\n{}'.format(self.full_id, e))
+
     def remove_colinear_vertices(self, tolerance=0.01):
         """Remove all colinear and duplicate vertices from this object's geometry.
 
@@ -471,6 +486,17 @@ class Shape(_Base):
 
         # snap all polygons together
         polygon_2ds = Polygon2D.snap_polygons(polygon_2ds, tol)
+
+        # remove colinear and degenerate geometry
+        i_to_remove = []
+        for i, poly in enumerate(polygon_2ds):
+            try:
+                poly.remove_colinear_vertices(tol)
+            except ValueError:  # degenerate shape found!
+                i_to_remove.append(i)
+        for i in reversed(i_to_remove):
+            polygon_2ds.pop(i)
+            is_holes.pop(i)
 
         # intersect the Room2D polygons within the 2D space
         int_poly = Polygon2D.intersect_polygon_segments(polygon_2ds, tol)

@@ -606,6 +606,27 @@ class Model(_Base):
         for i in reversed(i_to_remove):
             self._shapes.pop(i)
 
+    def remove_duplicate_vertices(self, tolerance=None):
+        """Remove any duplicate vertices from the model.
+
+        Any degenerate shapes found while removing duplicate vertices will be
+        automatically removed from the model.
+
+        Args:
+            tolerance: The minimum distance between a vertex and the boundary segments
+                at which point the vertex is considered distinct. If None, the
+                Model's tolerance will be used. (Default: None).
+        """
+        tolerance = self.tolerance if tolerance is None else tolerance
+        i_to_remove = []
+        for i, shape in enumerate(self._shapes):
+            try:
+                shape.remove_duplicate_vertices(tolerance)
+            except ValueError:  # degenerate shape found!
+                i_to_remove.append(i)
+        for i in reversed(i_to_remove):
+            self._shapes.pop(i)
+
     def check_all(self, raise_exception=True, detailed=False, all_ext_checks=False):
         """Check all of the aspects of the Model for validation errors.
 
