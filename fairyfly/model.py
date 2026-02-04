@@ -373,6 +373,44 @@ class Model(_Base):
         mn, mx = self.min, self.max
         return Point3D((mn.x + mx.x) / 2, (mn.y + mx.y) / 2, (mn.z + mx.z) / 2)
 
+    @property
+    def duplicate_shape_geometry(self):
+        """Get a list of Face3Ds for any duplicate Shape geometry in the model.
+
+        These may not cause holes or extra regions in the model but they can
+        nevertheless cause simulation failures.
+        """
+        duplicates = []
+        for i, shape_1 in enumerate(self._shapes):
+            try:
+                for shape_2 in self._shapes[i + 1:]:
+                    if shape_1.geometry.is_centered_adjacent(
+                            shape_2.geometry, self.tolerance):
+                        duplicates.append(shape_2.geometry)
+            except IndexError:
+                pass  # we have reached the end of the list of shapes
+        return duplicates
+
+    @property
+    def duplicate_boundary_geometry(self):
+        """Get a list of LineSegment3Ds for any duplicate Boundary geometry in the model.
+        """
+        # gather together all line segments across the boundaries
+        lines = []
+        for bound in self._boundaries:
+            lines.extend(bound.geometry)
+        # evaluate the line segments for equivalency
+        duplicates = []
+        for i, line_1 in enumerate(lines):
+            try:
+                for line_2 in lines[i + 1:]:
+                    if line_1.distance_to_point(line_2.p1) <= self.tolerance and \
+                            line_1.distance_to_point(line_2.p2) <= self.tolerance:
+                        duplicates.append(line_2)
+            except IndexError:
+                pass  # we have reached the end of the list of boundaries
+        return duplicates
+
     def add_model(self, other_model):
         """Add another Model object to this model."""
         assert isinstance(other_model, Model), \
