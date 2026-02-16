@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>fairyfly.search module &#8212; fairyfly  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="_static/bootstrap-sphinx.css?v=0bf093e7" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=9ac6488d" />
+    <script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="fairyfly.shape module" href="fairyfly.shape.html" />
+    <link rel="prev" title="fairyfly.properties module" href="fairyfly.properties.html" />
+<link rel="icon" type="image/x-icon" href="https://github.com/ladybug-tools/artwork/raw/refs/heads/master/icons_bugs/ico/fairyfly.ico">
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          fairyfly</a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="cli/index.html">CLI Docs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cli/index.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cli/index.html#commands">Commands</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cli/main.html">main</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cli/main.html#fairyfly">fairyfly</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="cli/main.html#fairyfly-config">config</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cli/main.html#fairyfly-viz">viz</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cli/setconfig.html">setconfig</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cli/setconfig.html#fairyfly-set-config">fairyfly set-config</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="cli/setconfig.html#fairyfly-set-config-default-simulation-folder">default-simulation-folder</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">fairyfly</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="fairyfly.html">fairyfly package</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="fairyfly.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="fairyfly.cli.html">fairyfly.cli package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="fairyfly.cli.html#submodules">Submodules</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.cli.setconfig.html">fairyfly.cli.setconfig module</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="fairyfly.cli.html#module-fairyfly.cli">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="fairyfly.writer.html">fairyfly.writer package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="fairyfly.writer.html#submodules">Submodules</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.writer.boundary.html">fairyfly.writer.boundary module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.writer.model.html">fairyfly.writer.model module</a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.writer.shape.html">fairyfly.writer.shape module</a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="fairyfly.writer.html#module-fairyfly.writer">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3 current"><a class="reference internal" href="fairyfly.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="fairyfly.boundary.html">fairyfly.boundary module</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="fairyfly.boundary.html#fairyfly.boundary.Boundary"><code class="docutils literal notranslate"><span class="pre">Boundary</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.boundary.html#fairyfly.boundary.Boundary.ToString"><code class="docutils literal notranslate"><span class="pre">ToString()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.boundary.html#fairyfly.boundary.Boundary.check_planar"><code class="docutils literal notranslate"><span class="pre">check_planar()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.boundary.html#fairyfly.boundary.Boundary.duplicate"><code class="docutils literal notranslate"><span class="pre">duplicate()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.boundary.html#fairyfly.boundary.Boundary.from_dict"><code class="docutils literal notranslate"><span class="pre">from_dict()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.boundary.html#fairyfly.boundary.Boundary.from_vertices"><code class="docutils literal notranslate"><span class="pre">from_vertices()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.boundary.html#fairyfly.boundary.Boundary.move"><code class="docutils literal notranslate"><span class="pre">move()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.boundary.html#fairyfly.boundary.Boundary.reflect"><code class="docutils literal notranslate"><span class="pre">reflect()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.boundary.html#fairyfly.boundary.Boundary.rename_by_attribute"><code class="docutils literal notranslate"><span class="pre">rename_by_attribute()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.boundary.html#fairyfly.boundary.Boundary.rotate"><code class="docutils literal notranslate"><span class="pre">rotate()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.boundary.html#fairyfly.boundary.Boundary.rotate_xy"><code class="docutils literal notranslate"><span class="pre">rotate_xy()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.boundary.html#fairyfly.boundary.Boundary.scale"><code class="docutils literal notranslate"><span class="pre">scale()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.boundary.html#fairyfly.boundary.Boundary.to_dict"><code class="docutils literal notranslate"><span class="pre">to_dict()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.boundary.html#fairyfly.boundary.Boundary.center"><code class="docutils literal notranslate"><span class="pre">center</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.boundary.html#fairyfly.boundary.Boundary.display_name"><code class="docutils literal notranslate"><span class="pre">display_name</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.boundary.html#fairyfly.boundary.Boundary.full_id"><code class="docutils literal notranslate"><span class="pre">full_id</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.boundary.html#fairyfly.boundary.Boundary.geometry"><code class="docutils literal notranslate"><span class="pre">geometry</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.boundary.html#fairyfly.boundary.Boundary.has_parent"><code class="docutils literal notranslate"><span class="pre">has_parent</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.boundary.html#fairyfly.boundary.Boundary.identifier"><code class="docutils literal notranslate"><span class="pre">identifier</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.boundary.html#fairyfly.boundary.Boundary.length"><code class="docutils literal notranslate"><span class="pre">length</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.boundary.html#fairyfly.boundary.Boundary.max"><code class="docutils literal notranslate"><span class="pre">max</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.boundary.html#fairyfly.boundary.Boundary.min"><code class="docutils literal notranslate"><span class="pre">min</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.boundary.html#fairyfly.boundary.Boundary.parent"><code class="docutils literal notranslate"><span class="pre">parent</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.boundary.html#fairyfly.boundary.Boundary.properties"><code class="docutils literal notranslate"><span class="pre">properties</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.boundary.html#fairyfly.boundary.Boundary.therm_uuid"><code class="docutils literal notranslate"><span class="pre">therm_uuid</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.boundary.html#fairyfly.boundary.Boundary.to"><code class="docutils literal notranslate"><span class="pre">to</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.boundary.html#fairyfly.boundary.Boundary.user_data"><code class="docutils literal notranslate"><span class="pre">user_data</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.boundary.html#fairyfly.boundary.Boundary.vertices"><code class="docutils literal notranslate"><span class="pre">vertices</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="fairyfly.checkdup.html">fairyfly.checkdup module</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="fairyfly.checkdup.html#fairyfly.checkdup.check_duplicate_identifiers"><code class="docutils literal notranslate"><span class="pre">check_duplicate_identifiers()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="fairyfly.checkdup.html#fairyfly.checkdup.check_duplicate_identifiers_parent"><code class="docutils literal notranslate"><span class="pre">check_duplicate_identifiers_parent()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="fairyfly.checkdup.html#fairyfly.checkdup.is_equivalent"><code class="docutils literal notranslate"><span class="pre">is_equivalent()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="fairyfly.colorobj.html">fairyfly.colorobj module</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="fairyfly.colorobj.html#fairyfly.colorobj.ColorBoundary"><code class="docutils literal notranslate"><span class="pre">ColorBoundary</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.colorobj.html#fairyfly.colorobj.ColorBoundary.ToString"><code class="docutils literal notranslate"><span class="pre">ToString()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.colorobj.html#fairyfly.colorobj.ColorBoundary.attr_name"><code class="docutils literal notranslate"><span class="pre">attr_name</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.colorobj.html#fairyfly.colorobj.ColorBoundary.attr_name_end"><code class="docutils literal notranslate"><span class="pre">attr_name_end</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.colorobj.html#fairyfly.colorobj.ColorBoundary.attributes"><code class="docutils literal notranslate"><span class="pre">attributes</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.colorobj.html#fairyfly.colorobj.ColorBoundary.attributes_original"><code class="docutils literal notranslate"><span class="pre">attributes_original</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.colorobj.html#fairyfly.colorobj.ColorBoundary.attributes_unique"><code class="docutils literal notranslate"><span class="pre">attributes_unique</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.colorobj.html#fairyfly.colorobj.ColorBoundary.boundaries"><code class="docutils literal notranslate"><span class="pre">boundaries</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.colorobj.html#fairyfly.colorobj.ColorBoundary.flat_geometry"><code class="docutils literal notranslate"><span class="pre">flat_geometry</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.colorobj.html#fairyfly.colorobj.ColorBoundary.graphic_container"><code class="docutils literal notranslate"><span class="pre">graphic_container</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.colorobj.html#fairyfly.colorobj.ColorBoundary.legend_parameters"><code class="docutils literal notranslate"><span class="pre">legend_parameters</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.colorobj.html#fairyfly.colorobj.ColorBoundary.max_point"><code class="docutils literal notranslate"><span class="pre">max_point</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.colorobj.html#fairyfly.colorobj.ColorBoundary.min_point"><code class="docutils literal notranslate"><span class="pre">min_point</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="fairyfly.colorobj.html#fairyfly.colorobj.ColorShape"><code class="docutils literal notranslate"><span class="pre">ColorShape</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.colorobj.html#fairyfly.colorobj.ColorShape.ToString"><code class="docutils literal notranslate"><span class="pre">ToString()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.colorobj.html#fairyfly.colorobj.ColorShape.attr_name"><code class="docutils literal notranslate"><span class="pre">attr_name</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.colorobj.html#fairyfly.colorobj.ColorShape.attr_name_end"><code class="docutils literal notranslate"><span class="pre">attr_name_end</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.colorobj.html#fairyfly.colorobj.ColorShape.attributes"><code class="docutils literal notranslate"><span class="pre">attributes</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.colorobj.html#fairyfly.colorobj.ColorShape.attributes_original"><code class="docutils literal notranslate"><span class="pre">attributes_original</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.colorobj.html#fairyfly.colorobj.ColorShape.attributes_unique"><code class="docutils literal notranslate"><span class="pre">attributes_unique</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.colorobj.html#fairyfly.colorobj.ColorShape.geometry"><code class="docutils literal notranslate"><span class="pre">geometry</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.colorobj.html#fairyfly.colorobj.ColorShape.graphic_container"><code class="docutils literal notranslate"><span class="pre">graphic_container</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.colorobj.html#fairyfly.colorobj.ColorShape.legend_parameters"><code class="docutils literal notranslate"><span class="pre">legend_parameters</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.colorobj.html#fairyfly.colorobj.ColorShape.max_point"><code class="docutils literal notranslate"><span class="pre">max_point</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.colorobj.html#fairyfly.colorobj.ColorShape.min_point"><code class="docutils literal notranslate"><span class="pre">min_point</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.colorobj.html#fairyfly.colorobj.ColorShape.shapes"><code class="docutils literal notranslate"><span class="pre">shapes</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="fairyfly.config.html">fairyfly.config module</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="fairyfly.config.html#fairyfly.config.Folders"><code class="docutils literal notranslate"><span class="pre">Folders</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.config.html#fairyfly.config.Folders.config_file"><code class="docutils literal notranslate"><span class="pre">config_file</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.config.html#fairyfly.config.Folders.default_simulation_folder"><code class="docutils literal notranslate"><span class="pre">default_simulation_folder</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.config.html#fairyfly.config.Folders.fairyfly_core_version"><code class="docutils literal notranslate"><span class="pre">fairyfly_core_version</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.config.html#fairyfly.config.Folders.fairyfly_core_version_str"><code class="docutils literal notranslate"><span class="pre">fairyfly_core_version_str</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.config.html#fairyfly.config.Folders.python_exe_path"><code class="docutils literal notranslate"><span class="pre">python_exe_path</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.config.html#fairyfly.config.Folders.python_package_path"><code class="docutils literal notranslate"><span class="pre">python_package_path</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.config.html#fairyfly.config.Folders.python_scripts_path"><code class="docutils literal notranslate"><span class="pre">python_scripts_path</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.config.html#fairyfly.config.Folders.python_version"><code class="docutils literal notranslate"><span class="pre">python_version</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.config.html#fairyfly.config.Folders.python_version_str"><code class="docutils literal notranslate"><span class="pre">python_version_str</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="fairyfly.dictutil.html">fairyfly.dictutil module</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="fairyfly.dictutil.html#fairyfly.dictutil.dict_to_object"><code class="docutils literal notranslate"><span class="pre">dict_to_object()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="fairyfly.extensionutil.html">fairyfly.extensionutil module</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="fairyfly.extensionutil.html#fairyfly.extensionutil.boundary_extension_dicts"><code class="docutils literal notranslate"><span class="pre">boundary_extension_dicts()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="fairyfly.extensionutil.html#fairyfly.extensionutil.model_extension_dicts"><code class="docutils literal notranslate"><span class="pre">model_extension_dicts()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="fairyfly.extensionutil.html#fairyfly.extensionutil.shape_extension_dicts"><code class="docutils literal notranslate"><span class="pre">shape_extension_dicts()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="fairyfly.logutil.html">fairyfly.logutil module</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="fairyfly.logutil.html#fairyfly.logutil.get_logger"><code class="docutils literal notranslate"><span class="pre">get_logger()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="fairyfly.model.html">fairyfly.model module</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="fairyfly.model.html#fairyfly.model.Model"><code class="docutils literal notranslate"><span class="pre">Model</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.model.html#fairyfly.model.Model.ToString"><code class="docutils literal notranslate"><span class="pre">ToString()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.model.html#fairyfly.model.Model.add_boundaries"><code class="docutils literal notranslate"><span class="pre">add_boundaries()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.model.html#fairyfly.model.Model.add_boundary"><code class="docutils literal notranslate"><span class="pre">add_boundary()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.model.html#fairyfly.model.Model.add_model"><code class="docutils literal notranslate"><span class="pre">add_model()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.model.html#fairyfly.model.Model.add_shape"><code class="docutils literal notranslate"><span class="pre">add_shape()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.model.html#fairyfly.model.Model.add_shapes"><code class="docutils literal notranslate"><span class="pre">add_shapes()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.model.html#fairyfly.model.Model.boundaries_by_identifier"><code class="docutils literal notranslate"><span class="pre">boundaries_by_identifier()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.model.html#fairyfly.model.Model.check_all"><code class="docutils literal notranslate"><span class="pre">check_all()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.model.html#fairyfly.model.Model.check_all_duplicate_identifiers"><code class="docutils literal notranslate"><span class="pre">check_all_duplicate_identifiers()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.model.html#fairyfly.model.Model.check_duplicate_boundary_identifiers"><code class="docutils literal notranslate"><span class="pre">check_duplicate_boundary_identifiers()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.model.html#fairyfly.model.Model.check_duplicate_shape_identifiers"><code class="docutils literal notranslate"><span class="pre">check_duplicate_shape_identifiers()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.model.html#fairyfly.model.Model.check_planar"><code class="docutils literal notranslate"><span class="pre">check_planar()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.model.html#fairyfly.model.Model.check_reasonable_tolerance"><code class="docutils literal notranslate"><span class="pre">check_reasonable_tolerance()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.model.html#fairyfly.model.Model.check_self_intersecting"><code class="docutils literal notranslate"><span class="pre">check_self_intersecting()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.model.html#fairyfly.model.Model.convert_to_units"><code class="docutils literal notranslate"><span class="pre">convert_to_units()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.model.html#fairyfly.model.Model.duplicate"><code class="docutils literal notranslate"><span class="pre">duplicate()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.model.html#fairyfly.model.Model.from_dict"><code class="docutils literal notranslate"><span class="pre">from_dict()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.model.html#fairyfly.model.Model.from_ffjson"><code class="docutils literal notranslate"><span class="pre">from_ffjson()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.model.html#fairyfly.model.Model.from_ffpkl"><code class="docutils literal notranslate"><span class="pre">from_ffpkl()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.model.html#fairyfly.model.Model.from_file"><code class="docutils literal notranslate"><span class="pre">from_file()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.model.html#fairyfly.model.Model.from_layers"><code class="docutils literal notranslate"><span class="pre">from_layers()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.model.html#fairyfly.model.Model.from_objects"><code class="docutils literal notranslate"><span class="pre">from_objects()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.model.html#fairyfly.model.Model.move"><code class="docutils literal notranslate"><span class="pre">move()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.model.html#fairyfly.model.Model.reflect"><code class="docutils literal notranslate"><span class="pre">reflect()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.model.html#fairyfly.model.Model.remove_boundaries"><code class="docutils literal notranslate"><span class="pre">remove_boundaries()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.model.html#fairyfly.model.Model.remove_degenerate_geometry"><code class="docutils literal notranslate"><span class="pre">remove_degenerate_geometry()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.model.html#fairyfly.model.Model.remove_duplicate_vertices"><code class="docutils literal notranslate"><span class="pre">remove_duplicate_vertices()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.model.html#fairyfly.model.Model.remove_shapes"><code class="docutils literal notranslate"><span class="pre">remove_shapes()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.model.html#fairyfly.model.Model.reset_coordinate_system"><code class="docutils literal notranslate"><span class="pre">reset_coordinate_system()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.model.html#fairyfly.model.Model.rotate"><code class="docutils literal notranslate"><span class="pre">rotate()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.model.html#fairyfly.model.Model.rotate_xy"><code class="docutils literal notranslate"><span class="pre">rotate_xy()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.model.html#fairyfly.model.Model.scale"><code class="docutils literal notranslate"><span class="pre">scale()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.model.html#fairyfly.model.Model.shapes_by_identifier"><code class="docutils literal notranslate"><span class="pre">shapes_by_identifier()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.model.html#fairyfly.model.Model.to_dict"><code class="docutils literal notranslate"><span class="pre">to_dict()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.model.html#fairyfly.model.Model.to_ffjson"><code class="docutils literal notranslate"><span class="pre">to_ffjson()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.model.html#fairyfly.model.Model.to_ffpkl"><code class="docutils literal notranslate"><span class="pre">to_ffpkl()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.model.html#fairyfly.model.Model.validate"><code class="docutils literal notranslate"><span class="pre">validate()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.model.html#fairyfly.model.Model.ERROR_MAP"><code class="docutils literal notranslate"><span class="pre">ERROR_MAP</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.model.html#fairyfly.model.Model.UNITS"><code class="docutils literal notranslate"><span class="pre">UNITS</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.model.html#fairyfly.model.Model.UNITS_TOLERANCES"><code class="docutils literal notranslate"><span class="pre">UNITS_TOLERANCES</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.model.html#fairyfly.model.Model.angle_tolerance"><code class="docutils literal notranslate"><span class="pre">angle_tolerance</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.model.html#fairyfly.model.Model.boundaries"><code class="docutils literal notranslate"><span class="pre">boundaries</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.model.html#fairyfly.model.Model.boundary_length"><code class="docutils literal notranslate"><span class="pre">boundary_length</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.model.html#fairyfly.model.Model.center"><code class="docutils literal notranslate"><span class="pre">center</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.model.html#fairyfly.model.Model.display_name"><code class="docutils literal notranslate"><span class="pre">display_name</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.model.html#fairyfly.model.Model.duplicate_boundary_geometry"><code class="docutils literal notranslate"><span class="pre">duplicate_boundary_geometry</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.model.html#fairyfly.model.Model.duplicate_shape_geometry"><code class="docutils literal notranslate"><span class="pre">duplicate_shape_geometry</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.model.html#fairyfly.model.Model.full_id"><code class="docutils literal notranslate"><span class="pre">full_id</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.model.html#fairyfly.model.Model.identifier"><code class="docutils literal notranslate"><span class="pre">identifier</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.model.html#fairyfly.model.Model.max"><code class="docutils literal notranslate"><span class="pre">max</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.model.html#fairyfly.model.Model.min"><code class="docutils literal notranslate"><span class="pre">min</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.model.html#fairyfly.model.Model.properties"><code class="docutils literal notranslate"><span class="pre">properties</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.model.html#fairyfly.model.Model.shape_area"><code class="docutils literal notranslate"><span class="pre">shape_area</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.model.html#fairyfly.model.Model.shapes"><code class="docutils literal notranslate"><span class="pre">shapes</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.model.html#fairyfly.model.Model.therm_uuid"><code class="docutils literal notranslate"><span class="pre">therm_uuid</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.model.html#fairyfly.model.Model.to"><code class="docutils literal notranslate"><span class="pre">to</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.model.html#fairyfly.model.Model.tolerance"><code class="docutils literal notranslate"><span class="pre">tolerance</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.model.html#fairyfly.model.Model.units"><code class="docutils literal notranslate"><span class="pre">units</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.model.html#fairyfly.model.Model.user_data"><code class="docutils literal notranslate"><span class="pre">user_data</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="fairyfly.properties.html">fairyfly.properties module</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="fairyfly.properties.html#fairyfly.properties.BoundaryProperties"><code class="docutils literal notranslate"><span class="pre">BoundaryProperties</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.properties.html#fairyfly.properties.BoundaryProperties.ToString"><code class="docutils literal notranslate"><span class="pre">ToString()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.properties.html#fairyfly.properties.BoundaryProperties.is_equivalent"><code class="docutils literal notranslate"><span class="pre">is_equivalent()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.properties.html#fairyfly.properties.BoundaryProperties.move"><code class="docutils literal notranslate"><span class="pre">move()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.properties.html#fairyfly.properties.BoundaryProperties.reflect"><code class="docutils literal notranslate"><span class="pre">reflect()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.properties.html#fairyfly.properties.BoundaryProperties.reset_to_default"><code class="docutils literal notranslate"><span class="pre">reset_to_default()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.properties.html#fairyfly.properties.BoundaryProperties.rotate"><code class="docutils literal notranslate"><span class="pre">rotate()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.properties.html#fairyfly.properties.BoundaryProperties.rotate_xy"><code class="docutils literal notranslate"><span class="pre">rotate_xy()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.properties.html#fairyfly.properties.BoundaryProperties.scale"><code class="docutils literal notranslate"><span class="pre">scale()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.properties.html#fairyfly.properties.BoundaryProperties.to_dict"><code class="docutils literal notranslate"><span class="pre">to_dict()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.properties.html#fairyfly.properties.BoundaryProperties.host"><code class="docutils literal notranslate"><span class="pre">host</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="fairyfly.properties.html#fairyfly.properties.ModelProperties"><code class="docutils literal notranslate"><span class="pre">ModelProperties</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.properties.html#fairyfly.properties.ModelProperties.ToString"><code class="docutils literal notranslate"><span class="pre">ToString()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.properties.html#fairyfly.properties.ModelProperties.apply_properties_from_dict"><code class="docutils literal notranslate"><span class="pre">apply_properties_from_dict()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.properties.html#fairyfly.properties.ModelProperties.is_equivalent"><code class="docutils literal notranslate"><span class="pre">is_equivalent()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.properties.html#fairyfly.properties.ModelProperties.move"><code class="docutils literal notranslate"><span class="pre">move()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.properties.html#fairyfly.properties.ModelProperties.reflect"><code class="docutils literal notranslate"><span class="pre">reflect()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.properties.html#fairyfly.properties.ModelProperties.rotate"><code class="docutils literal notranslate"><span class="pre">rotate()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.properties.html#fairyfly.properties.ModelProperties.rotate_xy"><code class="docutils literal notranslate"><span class="pre">rotate_xy()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.properties.html#fairyfly.properties.ModelProperties.scale"><code class="docutils literal notranslate"><span class="pre">scale()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.properties.html#fairyfly.properties.ModelProperties.to_dict"><code class="docutils literal notranslate"><span class="pre">to_dict()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.properties.html#fairyfly.properties.ModelProperties.host"><code class="docutils literal notranslate"><span class="pre">host</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="fairyfly.properties.html#fairyfly.properties.ShapeProperties"><code class="docutils literal notranslate"><span class="pre">ShapeProperties</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.properties.html#fairyfly.properties.ShapeProperties.ToString"><code class="docutils literal notranslate"><span class="pre">ToString()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.properties.html#fairyfly.properties.ShapeProperties.is_equivalent"><code class="docutils literal notranslate"><span class="pre">is_equivalent()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.properties.html#fairyfly.properties.ShapeProperties.move"><code class="docutils literal notranslate"><span class="pre">move()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.properties.html#fairyfly.properties.ShapeProperties.reflect"><code class="docutils literal notranslate"><span class="pre">reflect()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.properties.html#fairyfly.properties.ShapeProperties.reset_to_default"><code class="docutils literal notranslate"><span class="pre">reset_to_default()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.properties.html#fairyfly.properties.ShapeProperties.rotate"><code class="docutils literal notranslate"><span class="pre">rotate()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.properties.html#fairyfly.properties.ShapeProperties.rotate_xy"><code class="docutils literal notranslate"><span class="pre">rotate_xy()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.properties.html#fairyfly.properties.ShapeProperties.scale"><code class="docutils literal notranslate"><span class="pre">scale()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.properties.html#fairyfly.properties.ShapeProperties.to_dict"><code class="docutils literal notranslate"><span class="pre">to_dict()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.properties.html#fairyfly.properties.ShapeProperties.host"><code class="docutils literal notranslate"><span class="pre">host</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">fairyfly.search module</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#fairyfly.search.any_keywords_in_string"><code class="docutils literal notranslate"><span class="pre">any_keywords_in_string()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#fairyfly.search.filter_array_by_keywords"><code class="docutils literal notranslate"><span class="pre">filter_array_by_keywords()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#fairyfly.search.get_attr_nested"><code class="docutils literal notranslate"><span class="pre">get_attr_nested()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="fairyfly.shape.html">fairyfly.shape module</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="fairyfly.shape.html#fairyfly.shape.Shape"><code class="docutils literal notranslate"><span class="pre">Shape</span></code></a><ul>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.shape.html#fairyfly.shape.Shape.ToString"><code class="docutils literal notranslate"><span class="pre">ToString()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.shape.html#fairyfly.shape.Shape.check_planar"><code class="docutils literal notranslate"><span class="pre">check_planar()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.shape.html#fairyfly.shape.Shape.check_self_intersecting"><code class="docutils literal notranslate"><span class="pre">check_self_intersecting()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.shape.html#fairyfly.shape.Shape.duplicate"><code class="docutils literal notranslate"><span class="pre">duplicate()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.shape.html#fairyfly.shape.Shape.from_dict"><code class="docutils literal notranslate"><span class="pre">from_dict()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.shape.html#fairyfly.shape.Shape.from_vertices"><code class="docutils literal notranslate"><span class="pre">from_vertices()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.shape.html#fairyfly.shape.Shape.insert_vertex"><code class="docutils literal notranslate"><span class="pre">insert_vertex()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.shape.html#fairyfly.shape.Shape.intersect_adjacency"><code class="docutils literal notranslate"><span class="pre">intersect_adjacency()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.shape.html#fairyfly.shape.Shape.is_geo_equivalent"><code class="docutils literal notranslate"><span class="pre">is_geo_equivalent()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.shape.html#fairyfly.shape.Shape.move"><code class="docutils literal notranslate"><span class="pre">move()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.shape.html#fairyfly.shape.Shape.reflect"><code class="docutils literal notranslate"><span class="pre">reflect()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.shape.html#fairyfly.shape.Shape.remove_colinear_vertices"><code class="docutils literal notranslate"><span class="pre">remove_colinear_vertices()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.shape.html#fairyfly.shape.Shape.remove_duplicate_vertices"><code class="docutils literal notranslate"><span class="pre">remove_duplicate_vertices()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.shape.html#fairyfly.shape.Shape.rename_by_attribute"><code class="docutils literal notranslate"><span class="pre">rename_by_attribute()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.shape.html#fairyfly.shape.Shape.rotate"><code class="docutils literal notranslate"><span class="pre">rotate()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.shape.html#fairyfly.shape.Shape.rotate_xy"><code class="docutils literal notranslate"><span class="pre">rotate_xy()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.shape.html#fairyfly.shape.Shape.scale"><code class="docutils literal notranslate"><span class="pre">scale()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.shape.html#fairyfly.shape.Shape.to_dict"><code class="docutils literal notranslate"><span class="pre">to_dict()</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.shape.html#fairyfly.shape.Shape.altitude"><code class="docutils literal notranslate"><span class="pre">altitude</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.shape.html#fairyfly.shape.Shape.area"><code class="docutils literal notranslate"><span class="pre">area</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.shape.html#fairyfly.shape.Shape.azimuth"><code class="docutils literal notranslate"><span class="pre">azimuth</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.shape.html#fairyfly.shape.Shape.center"><code class="docutils literal notranslate"><span class="pre">center</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.shape.html#fairyfly.shape.Shape.display_name"><code class="docutils literal notranslate"><span class="pre">display_name</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.shape.html#fairyfly.shape.Shape.full_id"><code class="docutils literal notranslate"><span class="pre">full_id</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.shape.html#fairyfly.shape.Shape.geometry"><code class="docutils literal notranslate"><span class="pre">geometry</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.shape.html#fairyfly.shape.Shape.has_parent"><code class="docutils literal notranslate"><span class="pre">has_parent</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.shape.html#fairyfly.shape.Shape.identifier"><code class="docutils literal notranslate"><span class="pre">identifier</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.shape.html#fairyfly.shape.Shape.max"><code class="docutils literal notranslate"><span class="pre">max</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.shape.html#fairyfly.shape.Shape.min"><code class="docutils literal notranslate"><span class="pre">min</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.shape.html#fairyfly.shape.Shape.normal"><code class="docutils literal notranslate"><span class="pre">normal</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.shape.html#fairyfly.shape.Shape.parent"><code class="docutils literal notranslate"><span class="pre">parent</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.shape.html#fairyfly.shape.Shape.perimeter"><code class="docutils literal notranslate"><span class="pre">perimeter</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.shape.html#fairyfly.shape.Shape.properties"><code class="docutils literal notranslate"><span class="pre">properties</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.shape.html#fairyfly.shape.Shape.therm_uuid"><code class="docutils literal notranslate"><span class="pre">therm_uuid</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.shape.html#fairyfly.shape.Shape.tilt"><code class="docutils literal notranslate"><span class="pre">tilt</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.shape.html#fairyfly.shape.Shape.to"><code class="docutils literal notranslate"><span class="pre">to</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.shape.html#fairyfly.shape.Shape.user_data"><code class="docutils literal notranslate"><span class="pre">user_data</span></code></a></li>
+<li class="toctree-l6"><a class="reference internal" href="fairyfly.shape.html#fairyfly.shape.Shape.vertices"><code class="docutils literal notranslate"><span class="pre">vertices</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="fairyfly.typing.html">fairyfly.typing module</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="fairyfly.typing.html#fairyfly.typing.clean_string"><code class="docutils literal notranslate"><span class="pre">clean_string()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="fairyfly.typing.html#fairyfly.typing.float_in_range"><code class="docutils literal notranslate"><span class="pre">float_in_range()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="fairyfly.typing.html#fairyfly.typing.float_in_range_excl"><code class="docutils literal notranslate"><span class="pre">float_in_range_excl()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="fairyfly.typing.html#fairyfly.typing.float_in_range_excl_incl"><code class="docutils literal notranslate"><span class="pre">float_in_range_excl_incl()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="fairyfly.typing.html#fairyfly.typing.float_in_range_incl_excl"><code class="docutils literal notranslate"><span class="pre">float_in_range_incl_excl()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="fairyfly.typing.html#fairyfly.typing.float_positive"><code class="docutils literal notranslate"><span class="pre">float_positive()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="fairyfly.typing.html#fairyfly.typing.int_in_range"><code class="docutils literal notranslate"><span class="pre">int_in_range()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="fairyfly.typing.html#fairyfly.typing.int_positive"><code class="docutils literal notranslate"><span class="pre">int_positive()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="fairyfly.typing.html#fairyfly.typing.invalid_dict_error"><code class="docutils literal notranslate"><span class="pre">invalid_dict_error()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="fairyfly.typing.html#fairyfly.typing.list_with_length"><code class="docutils literal notranslate"><span class="pre">list_with_length()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="fairyfly.typing.html#fairyfly.typing.therm_id_from_uuid"><code class="docutils literal notranslate"><span class="pre">therm_id_from_uuid()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="fairyfly.typing.html#fairyfly.typing.tuple_with_length"><code class="docutils literal notranslate"><span class="pre">tuple_with_length()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="fairyfly.typing.html#fairyfly.typing.uuid_from_therm_id"><code class="docutils literal notranslate"><span class="pre">uuid_from_therm_id()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="fairyfly.typing.html#fairyfly.typing.valid_uuid"><code class="docutils literal notranslate"><span class="pre">valid_uuid()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="fairyfly.units.html">fairyfly.units module</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="fairyfly.units.html#fairyfly.units.conversion_factor_to_meters"><code class="docutils literal notranslate"><span class="pre">conversion_factor_to_meters()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="fairyfly.units.html#fairyfly.units.parse_distance_string"><code class="docutils literal notranslate"><span class="pre">parse_distance_string()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fairyfly.html#module-fairyfly">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="cli/index.html">CLI Docs</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">fairyfly</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="fairyfly.html">fairyfly package</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="fairyfly.html#subpackages">Subpackages</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="fairyfly.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="fairyfly.boundary.html">fairyfly.boundary module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fairyfly.checkdup.html">fairyfly.checkdup module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fairyfly.colorobj.html">fairyfly.colorobj module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fairyfly.config.html">fairyfly.config module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fairyfly.dictutil.html">fairyfly.dictutil module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fairyfly.extensionutil.html">fairyfly.extensionutil module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fairyfly.logutil.html">fairyfly.logutil module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fairyfly.model.html">fairyfly.model module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fairyfly.properties.html">fairyfly.properties module</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">fairyfly.search module</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#fairyfly.search.any_keywords_in_string"><code class="docutils literal notranslate"><span class="pre">any_keywords_in_string()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#fairyfly.search.filter_array_by_keywords"><code class="docutils literal notranslate"><span class="pre">filter_array_by_keywords()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#fairyfly.search.get_attr_nested"><code class="docutils literal notranslate"><span class="pre">get_attr_nested()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="fairyfly.shape.html">fairyfly.shape module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fairyfly.typing.html">fairyfly.typing module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fairyfly.units.html">fairyfly.units module</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fairyfly.html#module-fairyfly">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+  <li>
+    <a href="fairyfly.properties.html" title="Previous Chapter: fairyfly.properties module"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; fairyfly.prop...</span>
+    </a>
+  </li>
+  <li>
+    <a href="fairyfly.shape.html" title="Next Chapter: fairyfly.shape module"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">fairyfly.shape module &raquo;</span>
+    </a>
+  </li>
+              
+            
+            
+            
+            
+              <li class="hidden-sm">
+<div id="sourcelink">
+  <a href="_sources/fairyfly.search.rst.txt"
+     rel="nofollow">Source</a>
+</div></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-4">
+        <div id="sidebar" class="bs-sidenav" role="complementary"><ul>
+<li class="toctree-l1"><a class="reference internal" href="cli/index.html">CLI Docs</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">fairyfly</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="fairyfly.html">fairyfly package</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="fairyfly.html#subpackages">Subpackages</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="fairyfly.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="fairyfly.boundary.html">fairyfly.boundary module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fairyfly.checkdup.html">fairyfly.checkdup module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fairyfly.colorobj.html">fairyfly.colorobj module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fairyfly.config.html">fairyfly.config module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fairyfly.dictutil.html">fairyfly.dictutil module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fairyfly.extensionutil.html">fairyfly.extensionutil module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fairyfly.logutil.html">fairyfly.logutil module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fairyfly.model.html">fairyfly.model module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fairyfly.properties.html">fairyfly.properties module</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">fairyfly.search module</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#fairyfly.search.any_keywords_in_string"><code class="docutils literal notranslate"><span class="pre">any_keywords_in_string()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#fairyfly.search.filter_array_by_keywords"><code class="docutils literal notranslate"><span class="pre">filter_array_by_keywords()</span></code></a></li>
+<li class="toctree-l5"><a class="reference internal" href="#fairyfly.search.get_attr_nested"><code class="docutils literal notranslate"><span class="pre">get_attr_nested()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="fairyfly.shape.html">fairyfly.shape module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fairyfly.typing.html">fairyfly.typing module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="fairyfly.units.html">fairyfly.units module</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="fairyfly.html#module-fairyfly">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    <div class="body col-md-8 content" role="main">
+      
+  <section id="module-fairyfly.search">
+<span id="fairyfly-search-module"></span><h1>fairyfly.search module<a class="headerlink" href="#module-fairyfly.search" title="Link to this heading">¶</a></h1>
+<p>Collection of methods for searching for keywords and filtering lists by keywords.
+This module also included methods to get nested attributes of objects.</p>
+<p>This is useful for cases like the following:</p>
+<ul class="simple">
+<li><p>Searching through the fairyfly-therm material libraries.</p></li>
+</ul>
+<dl class="py function">
+<dt class="sig sig-object py" id="fairyfly.search.any_keywords_in_string">
+<span class="sig-prename descclassname"><span class="pre">fairyfly.search.</span></span><span class="sig-name descname"><span class="pre">any_keywords_in_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keywords</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fairyfly/search.html#any_keywords_in_string"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fairyfly.search.any_keywords_in_string" title="Link to this definition">¶</a></dt>
+<dd><p>Check whether any keywords in an array exist within a given string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – A string which will be tested for whether it possesses any of the keywords.</p></li>
+<li><p><strong>keywords</strong> – An array of strings representing keywords, which will be searched for
+in the name.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fairyfly.search.filter_array_by_keywords">
+<span class="sig-prename descclassname"><span class="pre">fairyfly.search.</span></span><span class="sig-name descname"><span class="pre">filter_array_by_keywords</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keywords</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parse_phrases</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fairyfly/search.html#filter_array_by_keywords"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fairyfly.search.filter_array_by_keywords" title="Link to this definition">¶</a></dt>
+<dd><p>Filter an array of strings to get only those containing the given keywords.</p>
+<p>This method is case insensitive, allowing the searching of keywords across
+different cases of letters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>array</strong> – An array of strings which will be filtered to get only those containing
+the given keywords.</p></li>
+<li><p><strong>keywords</strong> – An array of strings representing keywords.</p></li>
+<li><p><strong>parse_phrases</strong> – If True, this method will automatically parse any strings of
+multiple keywords (separated by spaces) into separate keywords for
+searching. This results in a greater likelihood that someone finds what
+they are searching for in large arrays but it may not be appropriate for
+all cases. You may want to set it to False when you are searching for a
+specific phrase that includes spaces. Default: True.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="fairyfly.search.get_attr_nested">
+<span class="sig-prename descclassname"><span class="pre">fairyfly.search.</span></span><span class="sig-name descname"><span class="pre">get_attr_nested</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj_instance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attr_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decimal_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cast_to_str</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/fairyfly/search.html#get_attr_nested"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#fairyfly.search.get_attr_nested" title="Link to this definition">¶</a></dt>
+<dd><p>Get the attribute of an object while allowing the request of nested attributes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>obj_instance</strong> – An instance of a Python object. Typically, this is a fairyfly
+object like a Model, Shape or Boundary.</p></li>
+<li><p><strong>attr_name</strong> – A string of an attribute that the input obj_instance should have.
+This can have ‘.’ that separate the nested attributes from one another.
+For example, ‘properties.therm.material’.</p></li>
+<li><p><strong>decimal_count</strong> – An optional integer to be used to round the property to a
+number of decimal places if it is a float. (Default: None).</p></li>
+<li><p><strong>cast_to_str</strong> – Boolean to note whether attributes with a type other than
+float should be cast to strings. If False, the attribute will be
+returned with the original object type. (Default: True).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A string or number for tha attribute assigned ot the obj_instance. If the
+input attr_name is a valid attribute for the object but None is assigned,
+the output will be ‘None’. If the input attr_name is not valid for
+the input object, ‘N/A’ will be returned.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2026, Ladybug Tools.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 8.0.2.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

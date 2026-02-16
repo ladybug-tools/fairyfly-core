@@ -1,0 +1,39 @@
+fairyfly package
+================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   fairyfly.cli
+   fairyfly.writer
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   fairyfly.boundary
+   fairyfly.checkdup
+   fairyfly.colorobj
+   fairyfly.config
+   fairyfly.dictutil
+   fairyfly.extensionutil
+   fairyfly.logutil
+   fairyfly.model
+   fairyfly.properties
+   fairyfly.search
+   fairyfly.shape
+   fairyfly.typing
+   fairyfly.units
+
+Module contents
+---------------
+
+.. automodule:: fairyfly
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,7 @@
+fairyfly.boundary module
+========================
+
+.. automodule:: fairyfly.boundary
+   :members:
+   :undoc-members:
+   :show-inheritance:

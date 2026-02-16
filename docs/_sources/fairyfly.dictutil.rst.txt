@@ -1,0 +1,7 @@
+fairyfly.dictutil module
+========================
+
+.. automodule:: fairyfly.dictutil
+   :members:
+   :undoc-members:
+   :show-inheritance:
