@@ -1,0 +1,7 @@
+fairyfly
+========
+
+.. toctree::
+   :maxdepth: 4
+
+   fairyfly
