@@ -1,0 +1,7 @@
+fairyfly.writer.model module
+============================
+
+.. automodule:: fairyfly.writer.model
+   :members:
+   :undoc-members:
+   :show-inheritance:

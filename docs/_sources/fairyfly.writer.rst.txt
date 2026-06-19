@@ -1,0 +1,20 @@
+fairyfly.writer package
+=======================
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   fairyfly.writer.boundary
+   fairyfly.writer.model
+   fairyfly.writer.shape
+
+Module contents
+---------------
+
+.. automodule:: fairyfly.writer
+   :members:
+   :undoc-members:
+   :show-inheritance:

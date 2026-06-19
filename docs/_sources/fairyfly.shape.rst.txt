@@ -1,0 +1,7 @@
+fairyfly.shape module
+=====================
+
+.. automodule:: fairyfly.shape
+   :members:
+   :undoc-members:
+   :show-inheritance:
