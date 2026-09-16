@@ -1,0 +1,7 @@
+fairyfly.checkdup module
+========================
+
+.. automodule:: fairyfly.checkdup
+   :members:
+   :undoc-members:
+   :show-inheritance:
