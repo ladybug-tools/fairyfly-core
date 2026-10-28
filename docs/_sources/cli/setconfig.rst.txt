@@ -1,0 +1,6 @@
+setconfig
+=========
+
+.. click:: fairyfly.cli.setconfig:set_config
+   :prog: fairyfly set-config
+   :show-nested:
