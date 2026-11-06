@@ -1,0 +1,7 @@
+fairyfly.cli.setconfig module
+=============================
+
+.. automodule:: fairyfly.cli.setconfig
+   :members:
+   :undoc-members:
+   :show-inheritance:

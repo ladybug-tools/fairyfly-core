@@ -1,0 +1,7 @@
+fairyfly.typing module
+======================
+
+.. automodule:: fairyfly.typing
+   :members:
+   :undoc-members:
+   :show-inheritance:
