@@ -1,0 +1,7 @@
+fairyfly.properties module
+==========================
+
+.. automodule:: fairyfly.properties
+   :members:
+   :undoc-members:
+   :show-inheritance:

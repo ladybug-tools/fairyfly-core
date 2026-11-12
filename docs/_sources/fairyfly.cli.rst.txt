@@ -1,0 +1,18 @@
+fairyfly.cli package
+====================
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 4
+
+   fairyfly.cli.setconfig
+
+Module contents
+---------------
+
+.. automodule:: fairyfly.cli
+   :members:
+   :undoc-members:
+   :show-inheritance:
