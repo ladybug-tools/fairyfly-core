@@ -1,0 +1,7 @@
+fairyfly.colorobj module
+========================
+
+.. automodule:: fairyfly.colorobj
+   :members:
+   :undoc-members:
+   :show-inheritance:

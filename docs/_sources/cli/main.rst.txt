@@ -1,0 +1,7 @@
+main
+====
+
+.. click:: fairyfly.cli.__init__:main
+   :prog: fairyfly
+   :show-nested:
+   :commands: config ,viz
